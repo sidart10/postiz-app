@@ -1,0 +1,209 @@
+# Postiz Self-Hosted Deployment with MCP Integration
+# Production-ready Docker Compose configuration
+# For more information: https://docs.postiz.com
+
+services:
+  # Main Postiz application
+  postiz:
+    build:
+      context: ./postiz-app
+      dockerfile: Dockerfile.dev
+    image: postiz-app:local
+    container_name: postiz
+    restart: always
+    environment:
+      # === Required Core Settings ===
+      # Main application URL (for browser access)
+      # Using port 5001 because macOS uses 5000 for AirPlay Receiver
+      MAIN_URL: "http://localhost:5001"
+      FRONTEND_URL: "http://localhost:5001"
+      NEXT_PUBLIC_BACKEND_URL: "http://localhost:5001/api"
+
+      # Internal URL for workers to access frontend/uploads
+      FRONTEND_INTERNAL_URL: "http://host.docker.internal:5001"
+
+      # JWT Secret for authentication - KEEP THIS SECRET!
+      # Generated using: openssl rand -hex 32
+      JWT_SECRET: "ed1c1fb2d7b6b8eead9fc47ebfaa7ca8ee4aaba55c7f1d831c225ce5d723418b"
+
+      # Database connection
+      DATABASE_URL: "postgresql://postiz-user:postiz-password@postiz-postgres:5432/postiz-db-local"
+
+      # Redis connection for queue management
+      REDIS_URL: "redis://postiz-redis:6379"
+
+      # Backend internal URL (for workers inside container)
+      BACKEND_INTERNAL_URL: "http://localhost:3000"
+
+      # General instance (not SaaS mode)
+      IS_GENERAL: "true"
+
+      # === Security Settings ===
+      # Set to true for local development without HTTPS
+      # CHANGE TO FALSE for production with SSL/TLS
+      NOT_SECURED: "true"
+
+      # Allow user registration
+      DISABLE_REGISTRATION: "false"
+
+      # === Storage Settings ===
+      # Using local storage (default and most reliable)
+      # Images stored in Docker volume /uploads
+      STORAGE_PROVIDER: "local"
+      UPLOAD_DIRECTORY: "/uploads"
+      NEXT_PUBLIC_UPLOAD_DIRECTORY: "/uploads"
+
+      # Tell workers to use host.docker.internal for fetching localhost uploads
+      NEXT_PUBLIC_UPLOAD_STATIC_DIRECTORY: "http://host.docker.internal:5001/uploads"
+
+      # === Social Media API Settings ===
+      # Configure OAuth credentials for platforms you want to support
+      # Leave empty until you obtain credentials from each platform
+
+      # Twitter/X OAuth 1.0a
+      X_API_KEY: "5AroJ2wiiBeLPQGrcP1o35uUF"
+      X_API_SECRET: "8KVXKoCw5uBt9Kid9NGBGO4JdFvPheLCz0ShSlyF7vtZFYfPZZ"
+
+      # Twitter credentials (alternative naming)
+      TWITTER_API_KEY: "5AroJ2wiiBeLPQGrcP1o35uUF"
+      TWITTER_API_SECRET: "8KVXKoCw5uBt9Kid9NGBGO4JdFvPheLCz0ShSlyF7vtZFYfPZZ"
+      TWITTER_BEARER_TOKEN: "AAAAAAAAAAAAAAAAAAAAAIUykQEAAAAA%2Bl%2FK8eFjmRV8voK47QM7lNcBuy8%3DBjQzDwlcIQkgQ2oRgd12GO9MOau5oSjqpBwEBsGNkKGnOqFGnw"
+      TWITTER_ACCESS_TOKEN: "1574727684-nairE4fBr5WbJCPYr8af3Ra4u7yKVyJFS2QploQ"
+      TWITTER_ACCESS_TOKEN_SECRET: "XBPWIKm0sXOwItUYg8VKKHtBdYTrmFzI17l3Birk9eB4H"
+
+      # LinkedIn OAuth 2.0
+      LINKEDIN_CLIENT_ID: ""
+      LINKEDIN_CLIENT_SECRET: ""
+
+      # YouTube OAuth 2.0 (via Google Cloud Console)
+      YOUTUBE_CLIENT_ID: ""
+      YOUTUBE_CLIENT_SECRET: ""
+
+      # Facebook & Instagram OAuth 2.0 (Meta)
+      FACEBOOK_APP_ID: ""
+      FACEBOOK_APP_SECRET: ""
+
+      # TikTok OAuth 2.0
+      TIKTOK_CLIENT_ID: ""
+      TIKTOK_CLIENT_SECRET: ""
+
+      # Reddit OAuth 2.0
+      REDDIT_CLIENT_ID: ""
+      REDDIT_CLIENT_SECRET: ""
+
+      # Threads OAuth 2.0 (Meta)
+      THREADS_APP_ID: ""
+      THREADS_APP_SECRET: ""
+
+      # Pinterest OAuth 2.0
+      PINTEREST_CLIENT_ID: ""
+      PINTEREST_CLIENT_SECRET: ""
+
+      # Mastodon OAuth 2.0
+      MASTODON_URL: "https://mastodon.social"
+      MASTODON_CLIENT_ID: ""
+      MASTODON_CLIENT_SECRET: ""
+
+      # Discord OAuth 2.0
+      DISCORD_CLIENT_ID: ""
+      DISCORD_CLIENT_SECRET: ""
+      DISCORD_BOT_TOKEN_ID: ""
+
+      # Slack OAuth 2.0
+      SLACK_ID: ""
+      SLACK_SECRET: ""
+      SLACK_SIGNING_SECRET: ""
+
+      # === Optional AI Settings ===
+      # OpenAI API for AI-powered content generation
+      OPENAI_API_KEY: ""
+
+      # Additional AI APIs
+      GEMINI_API_KEY: ""
+      ANTHROPIC_API_KEY: ""
+      HEYGEN_API_KEY: ""
+
+      # === Misc Settings ===
+      API_LIMIT: 30
+      NX_ADD_PLUGINS: false
+
+    volumes:
+      # Persistent storage for config and uploads
+      - postiz-config:/config/
+      - postiz-uploads:/uploads/
+    ports:
+      # Expose Postiz web interface and API
+      # Changed from 5000 to 5001 due to macOS AirPlay conflict
+      - "5001:5000"
+    extra_hosts:
+      # Make localhost resolve to host machine from inside container
+      - "localhost:host-gateway"
+    networks:
+      - postiz-network
+    depends_on:
+      # Wait for database and Redis to be healthy before starting
+      postiz-postgres:
+        condition: service_healthy
+      postiz-redis:
+        condition: service_healthy
+
+  # PostgreSQL database
+  postiz-postgres:
+    image: postgres:17-alpine
+    container_name: postiz-postgres
+    restart: always
+    environment:
+      # Database credentials
+      POSTGRES_PASSWORD: postiz-password
+      POSTGRES_USER: postiz-user
+      POSTGRES_DB: postiz-db-local
+    volumes:
+      # Persistent database storage
+      - postgres-volume:/var/lib/postgresql/data
+    networks:
+      - postiz-network
+    healthcheck:
+      # Check if PostgreSQL is ready to accept connections
+      test: ["CMD-SHELL", "pg_isready -U postiz-user -d postiz-db-local"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+  # Redis cache and queue management
+  postiz-redis:
+    image: redis:7.2-alpine
+    container_name: postiz-redis
+    restart: always
+    volumes:
+      # Persistent Redis data
+      - postiz-redis-data:/data
+    networks:
+      - postiz-network
+    healthcheck:
+      # Check if Redis is responding
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+# Docker volumes for persistent data
+volumes:
+  postgres-volume:
+    # PostgreSQL database files
+    driver: local
+  postiz-redis-data:
+    # Redis persistence
+    driver: local
+  postiz-config:
+    # Postiz configuration files
+    driver: local
+  postiz-uploads:
+    # User uploaded media files
+    driver: local
+
+# Docker network for service communication
+networks:
+  postiz-network:
+    driver: bridge

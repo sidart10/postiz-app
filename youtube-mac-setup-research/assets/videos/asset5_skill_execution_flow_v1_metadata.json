@@ -1,0 +1,72 @@
+{
+  "asset_name": "asset5_skill_execution_flow_v1",
+  "asset_type": "animated_video",
+  "video_id": "d05ec8fd-79d7-4d7a-9a45-90a44aa86fe0",
+  "job_id": "e4528148-f4f9-44cc-9e20-009986c769ad",
+  "provider": "veotools (Google Veo 3.0 Fast)",
+  "model": "veo-3.0-fast-generate-preview",
+
+  "video_specs": {
+    "resolution": "1280x720",
+    "aspect_ratio": "16:9",
+    "fps": 24,
+    "duration_seconds": 8,
+    "frame_count": 192,
+    "format": "mp4"
+  },
+
+  "prompt_used": "Technical diagram animation showing AI agent workflow on pure black background. Clean white geometric boxes connected by animated white arrows flowing sequentially from top to bottom. Central orange box (#C15F3C) labeled \"MASTER AGENT\" pulses with soft glow. Three parallel boxes branch below in sequence with red, purple, and blue accent colors representing different services. Minimal motion graphics style, flat design, high contrast white on black, smooth professional animation, enterprise technical visualization.",
+
+  "negative_prompt": "gradients, 3D effects, textures, decorative elements, amateur design, blurry, low quality, text labels, cluttered",
+
+  "aesthetic_requirements": {
+    "style": "minimal_modern_tech",
+    "background": "#000000 (pure black)",
+    "design_system": "flat design, no gradients",
+    "color_palette": {
+      "claude_orange": "#C15F3C",
+      "gmail_red": "#EA4335",
+      "slack_aubergine": "#4A154B",
+      "google_blue": "#4285F4",
+      "success_green": "#34A853",
+      "neutral_grays": ["#404040", "#2A2A2A", "#606060"],
+      "text_white": "#FFFFFF"
+    },
+    "contrast_ratio": "high (15:1 minimum)",
+    "negative_space": "generous (40-60%)"
+  },
+
+  "usage_context": {
+    "video_project": "ai agents run my mac (YouTube 25-min)",
+    "timestamp_start": "17:00",
+    "timestamp_end": "18:00",
+    "duration_visible": "60 seconds (loops 7-8 times)",
+    "purpose": "Shows sequential skill execution flow from user input to results"
+  },
+
+  "generation_metadata": {
+    "generated_at": "2025-10-28T14:41:09.873299",
+    "completed_at": "2025-10-28T14:42:02.455406",
+    "generation_time_seconds": 53,
+    "operation_id": "models/veo-3.0-fast-generate-preview/operations/lgfgt1cfahq8"
+  },
+
+  "quality_assessment": {
+    "clarity": "pending_review",
+    "technical_quality": "pending_review",
+    "aesthetic_match": "pending_review",
+    "brand_color_accuracy": "pending_review",
+    "motion_smoothness": "pending_review",
+    "professionalism": "pending_review",
+    "overall_score": "pending_review",
+    "notes": "Review video to ensure it matches minimal modern aesthetic and brand colors"
+  },
+
+  "file_paths": {
+    "original": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/bmad/agents/ai-video-agent/ai-video-agent-sidecar/outputs/veotools/videos/video_d05ec8fd.mp4",
+    "production": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-28-2025/youtube-mac-setup-research/assets/videos/asset5_skill_execution_flow_v1.mp4"
+  },
+
+  "approved_for_production": false,
+  "notes": "8-second video generated with Veo 3.0 Fast. Will loop 7-8 times during 60-second section. Review to ensure minimal modern aesthetic matches specification requirements."
+}

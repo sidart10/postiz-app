@@ -1,0 +1,227 @@
+{
+  "image_generation": {
+    "_template_info": {
+      "template_name": "Skill Execution Flow Diagram - Sid's Mac Master Agent",
+      "version": "1.0",
+      "asset_id": "asset5_skill_execution_flow",
+      "use_for": "YouTube video diagram showing actual agent architecture",
+      "reference_style": "Claude blog diagrams - light, soft, minimal",
+      "author": "AI Video Agent",
+      "date": "2025-10-28"
+    },
+
+    "image_metadata": {
+      "asset_name": "skill_execution_flow_diagram",
+      "type": "technical_architecture_diagram",
+      "aspect_ratio": "16:9",
+      "resolution": "1920x1080",
+      "output_format": "png",
+      "usage": "YouTube overlay at 17:00-18:00, visible for 60 seconds"
+    },
+
+    "design_system": {
+      "aesthetic": "Claude-inspired minimal - soft, approachable, professional",
+      "reference": "Claude blog multi-agent diagrams (cream background, soft teals)",
+      "background_color": "#F4F3EE",
+      "primary_accent": "#7BC4B5",
+      "text_color": "#3D3D3D",
+      "typography": "Clean sans-serif (Inter or SF Pro)",
+      "box_style": "Rounded rectangles (8px radius), soft fills, thin borders (1px)",
+      "line_style": "Thin arrows (1-2px), simple, clean",
+      "spacing": "Generous (100px between stages)",
+      "overall_mood": "Calm, clean, professional but warm"
+    },
+
+    "diagram_content": {
+      "title": "How Mac Master Agent Executes 'morning briefing'",
+      "flow_direction": "top_to_bottom",
+      "total_stages": 6,
+
+      "stage_1_user_input": {
+        "label": "User: \"morning briefing\"",
+        "box_size": "400x80px",
+        "background_color": "#E8E6E1",
+        "text_color": "#3D3D3D",
+        "border": "1px solid #D4D1CC",
+        "position": "top_center",
+        "icon": "user avatar circle (optional)"
+      },
+
+      "stage_2_master_agent": {
+        "label": "Mac Master Agent",
+        "sublabel": "Routes command to skills",
+        "box_size": "500x100px",
+        "background_color": "#C15F3C",
+        "text_color": "#FFFFFF",
+        "border": "none",
+        "position": "100px below stage 1",
+        "icon": "Claude starburst icon (orange on darker orange circle)",
+        "emphasis": "This is the orchestrator"
+      },
+
+      "stage_3_skills": {
+        "layout": "3 boxes horizontal, 30px spacing",
+        "box_size": "280x90px each",
+        "background_color": "#B4DDD3",
+        "text_color": "#3D3D3D",
+        "border": "1px solid #9BCFC2",
+        "position": "150px below stage 2",
+
+        "skill_1": {
+          "label": "email-summary",
+          "sublabel": "Gmail MCP",
+          "accent_indicator": "small red dot (#EA4335) top-right corner"
+        },
+        "skill_2": {
+          "label": "slack-catchup",
+          "sublabel": "Slack MCP",
+          "accent_indicator": "small purple dot (#4A154B) top-right corner"
+        },
+        "skill_3": {
+          "label": "calendar-briefing",
+          "sublabel": "Calendar MCP",
+          "accent_indicator": "small blue dot (#4285F4) top-right corner"
+        }
+      },
+
+      "stage_4_mcp_servers": {
+        "layout": "3 boxes horizontal, aligned with stage 3",
+        "box_size": "280x70px each",
+        "text_color": "#FFFFFF",
+
+        "mcp_1": {
+          "label": "Gmail MCP",
+          "background_color": "#EA4335",
+          "connects_to": "skill_1"
+        },
+        "mcp_2": {
+          "label": "Slack MCP",
+          "background_color": "#4A154B",
+          "connects_to": "skill_2"
+        },
+        "mcp_3": {
+          "label": "Calendar MCP",
+          "background_color": "#4285F4",
+          "connects_to": "skill_3"
+        }
+      },
+
+      "stage_5_systems": {
+        "layout": "3 boxes horizontal",
+        "box_size": "280x60px each",
+        "background_color": "#D4EBE6",
+        "text_color": "#3D3D3D",
+        "border": "1px solid #B4DDD3",
+
+        "system_1": {
+          "label": "Gmail Inbox",
+          "sublabel": "47 unread",
+          "connects_to": "mcp_1"
+        },
+        "system_2": {
+          "label": "Slack Workspaces",
+          "sublabel": "8 @mentions",
+          "connects_to": "mcp_2"
+        },
+        "system_3": {
+          "label": "Google Calendar",
+          "sublabel": "3 meetings today",
+          "connects_to": "mcp_3"
+        }
+      },
+
+      "stage_6_results": {
+        "label": "Summaries Returned",
+        "sublabel": "4 emails, 8 mentions, 3 meetings",
+        "box_size": "600x100px",
+        "background_color": "#7BC4B5",
+        "text_color": "#FFFFFF",
+        "border": "none",
+        "position": "bottom_center",
+        "arrows_merge": "from all 3 systems"
+      }
+    },
+
+    "connecting_lines": {
+      "style": "simple_arrows",
+      "color": "#6B6B6B",
+      "width": "2px",
+      "opacity": "80%",
+      "arrow_style": "thin line with simple arrowhead",
+      "connections": [
+        "stage_1 → stage_2 (single arrow down)",
+        "stage_2 → stage_3 (splits into 3 arrows)",
+        "stage_3 → stage_4 (3 parallel arrows, each skill to its MCP)",
+        "stage_4 → stage_5 (3 arrows to systems)",
+        "stage_5 → stage_6 (arrows merge from 3 to 1)"
+      ]
+    },
+
+    "layout_specifications": {
+      "canvas_size": "1920x1080px",
+      "padding": "150px all sides",
+      "vertical_spacing_between_stages": "100px",
+      "horizontal_spacing_in_rows": "30px",
+      "alignment": "center",
+      "composition": "Balanced, hierarchical, generous breathing room"
+    },
+
+    "typography_specifications": {
+      "font_family": "Inter or SF Pro (clean sans-serif)",
+      "main_labels": {
+        "size": "20-24pt",
+        "weight": "Medium",
+        "color": "#3D3D3D or #FFFFFF (depending on background)"
+      },
+      "sublabels": {
+        "size": "14-16pt",
+        "weight": "Regular",
+        "color": "#6B6B6B or #D4D4D4"
+      },
+      "master_agent_label": {
+        "size": "28pt",
+        "weight": "Bold",
+        "color": "#FFFFFF"
+      },
+      "requirements": "All text perfectly sharp, high contrast, easily readable"
+    },
+
+    "quality_requirements": {
+      "clarity": "10/10 - Workflow instantly understandable",
+      "composition": "10/10 - Hierarchical, balanced, clean",
+      "color_accuracy": "10/10 - Exact brand colors (#C15F3C, #EA4335, #4A154B, #4285F4)",
+      "typography": "10/10 - Crisp, readable labels",
+      "aesthetic_match": "10/10 - Matches Claude's soft minimal style",
+      "professionalism": "10/10 - Enterprise-grade but approachable",
+      "narrative_fit": "10/10 - Shows YOUR actual Mac Master Agent architecture"
+    },
+
+    "negative_prompt": [
+      "harsh neon colors",
+      "black background",
+      "thick heavy borders",
+      "3D effects or shadows",
+      "gradients",
+      "PowerPoint corporate style",
+      "numbered circle indicators",
+      "busy decorative elements",
+      "blurry text",
+      "illegible labels",
+      "crowded composition",
+      "poor alignment",
+      "pixelated rendering",
+      "amateur design",
+      "generic stock diagram style"
+    ],
+
+    "final_prompt_text": "Clean minimalist technical architecture diagram showing Mac Master Agent workflow, inspired by Claude's blog design aesthetic. Soft cream background (#F4F3EE). TOP TO BOTTOM FLOW showing 6 stages with generous 100px spacing. STAGE 1: Small rounded rectangle (400x80px) light gray fill (#E8E6E1), dark text 'User: morning briefing'. STAGE 2: Medium rounded box (500x100px) Claude orange (#C15F3C), white bold text 'Mac Master Agent' with small Claude starburst icon, subtitle 'Routes command to skills'. STAGE 3: Three rounded boxes horizontal (280x90px each, 30px spacing), soft teal fill (#B4DDD3), dark text - 'email-summary' (red accent dot), 'slack-catchup' (purple dot), 'calendar-briefing' (blue dot), sublabels in gray. STAGE 4: Three brand-colored boxes - Gmail MCP (red #EA4335), Slack MCP (purple #4A154B), Calendar MCP (blue #4285F4), white text. STAGE 5: Three light teal boxes (#D4EBE6) - 'Gmail Inbox' (47 unread), 'Slack Workspaces' (8 @mentions), 'Google Calendar' (3 meetings). STAGE 6: Large teal box (600x100px, #7BC4B5) white text 'Summaries Returned' with data counts. CONNECTING LINES: Thin simple dark gray arrows (#6B6B6B, 2px), clean and minimal. TYPOGRAPHY: Inter or SF Pro, 14-28pt range, high contrast. STYLE: Soft, approachable, minimal like Claude's actual engineering blog diagrams, rounded corners 8px, thin borders 1px, lots of breathing room, clean professional but warm aesthetic. NO harsh colors, NO thick borders, NO numbered circles, NO black background, NO neon accents.",
+
+    "provider": "mcp__gpt-image-1__create_image",
+    "provider_settings": {
+      "size": "1536x1024",
+      "quality": "high",
+      "n": 1,
+      "output_format": "png"
+    }
+  }
+}

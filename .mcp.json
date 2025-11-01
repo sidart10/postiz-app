@@ -1,0 +1,54 @@
+{
+  "mcpServers": {
+    "postiz": {
+      "command": "node",
+      "args": [
+        "/Users/sid/Desktop/4. Coding Projects/Postiz/postiz-mcp-server.js"
+      ],
+      "env": {
+        "POSTIZ_API_KEY": "8e016ebccd6f56eea7fbfe1e7acd79103661f8e10407eff9a9b2c78fa531388d"
+      }
+    },
+    "cloudinary-asset-mgmt": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "--package", "@cloudinary/asset-management", "--", "mcp", "start"],
+      "env": {
+        "CLOUDINARY_URL": "cloudinary://845481877967259:4KWqokXB6mqXzGMscEizOcNL3b8@dnezawwer"
+      }
+    },
+    "cloudinary-env-config": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "--package", "@cloudinary/environment-config", "--", "mcp", "start"],
+      "env": {
+        "CLOUDINARY_URL": "cloudinary://845481877967259:4KWqokXB6mqXzGMscEizOcNL3b8@dnezawwer"
+      }
+    },
+    "cloudinary-structured-metadata": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "--package", "@cloudinary/structured-metadata", "--", "mcp", "start"],
+      "env": {
+        "CLOUDINARY_URL": "cloudinary://845481877967259:4KWqokXB6mqXzGMscEizOcNL3b8@dnezawwer"
+      }
+    },
+    "cloudinary-analysis": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "--package", "@cloudinary/analysis", "--", "mcp", "start"],
+      "env": {
+        "CLOUDINARY_URL": "cloudinary://845481877967259:4KWqokXB6mqXzGMscEizOcNL3b8@dnezawwer"
+      }
+    },
+    "cloudinary-mediaflows": {
+      "type": "http",
+      "url": "https://mediaflows.mcp.cloudinary.com/v2/mcp",
+      "headers": {
+        "cld-cloud-name": "dnezawwer",
+        "cld-api-key": "845481877967259",
+        "cld-secret": "4KWqokXB6mqXzGMscEizOcNL3b8"
+      }
+    }
+  }
+}

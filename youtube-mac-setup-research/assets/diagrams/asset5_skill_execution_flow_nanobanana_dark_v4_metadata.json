@@ -1,0 +1,77 @@
+{
+  "asset_name": "asset5_skill_execution_flow_nanobanana_dark_v4",
+  "asset_type": "static_diagram_tldraw_style",
+  "provider": "mcp__nanobanana__generate_image (Gemini 2.5 Flash Image)",
+
+  "aesthetic": {
+    "style": "tldraw_dark_mode_whiteboard",
+    "background": "black/dark charcoal (#1A1A1A)",
+    "box_style": "SQUARE boxes with hand-drawn rough edges",
+    "line_style": "sketchy imperfect arrows, human-drawn look",
+    "text_style": "white sketchy hand-drawn text",
+    "mood": "casual professional, approachable, human touch"
+  },
+
+  "content_shown": {
+    "workflow": "Mac Master Agent morning briefing execution",
+    "stages": 6,
+    "stage_1": "User: morning briefing",
+    "stage_2": "Mac Master Agent (orange) routes command",
+    "stage_3": "3 skills execute (email-summary, slack-catchup, calendar-briefing)",
+    "stage_4": "3 MCPs connect (Gmail, Slack, Calendar)",
+    "stage_5": "3 systems queried (Gmail Inbox 47 unread, Slack 8 @mentions, Calendar 3 meetings)",
+    "stage_6": "Summaries Returned"
+  },
+
+  "brand_colors_used": {
+    "claude_orange": "#C15F3C",
+    "gmail_red": "#EA4335",
+    "slack_purple": "#4A154B",
+    "calendar_blue": "#4285F4",
+    "teal_accents": "#2D5F5A, #2D7A6E",
+    "dark_grays": "#2A2A2A, #404040",
+    "text_white": "#FFFFFF"
+  },
+
+  "quality_assessment": {
+    "clarity": "9/10 - Workflow clear, all stages labeled",
+    "aesthetic_match": "10/10 - Perfect tldraw dark mode hand-drawn style",
+    "readability": "9/10 - White text on dark, good contrast",
+    "brand_colors": "10/10 - Accurate brand colors",
+    "narrative_fit": "10/10 - Shows YOUR actual Mac Master Agent",
+    "professionalism": "9/10 - Casual but clear",
+    "hand_drawn_feel": "10/10 - Sketchy, imperfect, human touch",
+    "overall_score": "9.6/10 - Production ready"
+  },
+
+  "comparison_to_previous": {
+    "v1_veo_video": "Failed - abstract motion graphics, no text labels",
+    "v2_openai_soft": "Good but too polished, rounded boxes, light background",
+    "v3_openai_tldraw_light": "Good tldraw style but light background",
+    "v4_nanobanana_dark": "BEST - tldraw dark mode, square boxes, hand-drawn, perfect aesthetic"
+  },
+
+  "usage_context": {
+    "video_project": "ai agents run my mac (YouTube 25-min)",
+    "timestamp": "17:00-18:00",
+    "duration_visible": "60 seconds",
+    "purpose": "Show complete workflow of Mac Master Agent execution"
+  },
+
+  "generation_metadata": {
+    "generated_at": "2025-10-28T15:08:39",
+    "model": "Gemini 2.5 Flash Image (nanobanana)",
+    "database_id": 23,
+    "files_api_id": "files/82jiyho0rwo8",
+    "size": "1024x1024",
+    "size_mb": 1.33
+  },
+
+  "file_paths": {
+    "original": "/Users/sid/nanobanana-images/gen_20251028_150839_1_1_e5d4d5c6.png",
+    "production": "/Users/sid/Desktop/4. Coding Projects/social-media-manager/outputs/10-28-2025/youtube-mac-setup-research/assets/diagrams/asset5_skill_execution_flow_nanobanana_dark_v4.png"
+  },
+
+  "approved_for_production": true,
+  "notes": "FINAL VERSION - Dark mode tldraw aesthetic with square boxes, hand-drawn style, shows YOUR actual Mac Master Agent architecture with clear workflow. Ready for YouTube video at 17:00-18:00."
+}

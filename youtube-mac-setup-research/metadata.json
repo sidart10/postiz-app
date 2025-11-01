@@ -1,0 +1,33 @@
+{
+  "session_name": "youtube-mac-setup-research",
+  "date": "2025-10-28",
+  "agent": "Jarvis",
+  "workflow": "research-topic",
+  "topic": "Mac Setup YouTube Video with Claude Code Automation",
+  "depth": "comprehensive",
+  "sources_analyzed": 52,
+  "research_categories": [
+    "Mac setup guides",
+    "Paid vs free app alternatives",
+    "Claude Code automation",
+    "YouTube content strategy",
+    "Essential app categories"
+  ],
+  "outputs": {
+    "research_brief": "research/research-brief-mac-setup-youtube.md"
+  },
+  "api_usage": {
+    "exa_searches": 6,
+    "social_media_mcp": 1,
+    "web_search": 1,
+    "total_cost": 0.06
+  },
+  "confidence_score": "9/10",
+  "next_steps": [
+    "Pick content angle",
+    "Create video script via /write-scripts",
+    "Test Claude Code automation flow",
+    "Design thumbnail",
+    "Record and edit video"
+  ]
+}

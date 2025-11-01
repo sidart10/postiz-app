@@ -1,15 +1,32 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
 
-# compiled output
-dist
-tmp
-/out-tsc
+# Environment variables
 .env
-# dependencies
-node_modules
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+out/
+tmp/
+/out-tsc
+.next/
+.turbo/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # IDEs and editors
 /.idea
+.idea/
 .project
 .classpath
 .c9/
@@ -17,33 +34,38 @@ node_modules
 .settings/
 *.sublime-workspace
 .vscode/*
-
-# IDE - VSCode
-.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
 # System Files
 .DS_Store
 Thumbs.db
 
+# Cache
+.nx/
 .nx/cache
 .nx/workspace-data
+.cache/
+/.sass-cache
+*.tsbuildinfo
 
-# Next.js
-.next
+# Secrets
+.secrets/
+client_secret_*.json
+*.pem
+*.key
+
+# Local uploads
+uploads/
+var/
+
+# AI agent workspaces
+.serena/
+.claude/
+.cursor/
+.bmad-core/
 
 # Vim files
 **/*.swp
@@ -52,9 +74,16 @@ Thumbs.db
 # Temporary files
 *.orig
 *.~*~
-*.tsbuildinfo
+tmp/
+temp/
+/connect.lock
 
-# ignore Secrets folder
-.secrets/
+# Coverage and testing
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# Project specific
 libraries/plugins/src/plugins.ts
 i18n.cache
